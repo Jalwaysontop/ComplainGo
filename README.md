@@ -1,121 +1,146 @@
 # ComplainGo – AI-Powered Road Complaint Assistant
 
-*Jo Dikhe, Bol Do — On-the-Go!*
+**Jo Dikhe, Bol Do — On-the-Go!**
+
+---
 
 ## About This Project
 
-ComplainGo is a **concept prototype** that reimagines how citizens report road and infrastructure issues in India.
-It’s designed as a **scalable model for government services**, automating the entire complaint process — from identifying the issue to filling the official forms.
+ComplainGo is a concept prototype that reimagines how citizens report road and infrastructure issues in India. It is designed as a scalable model for government services that automates the entire complaint process—from identifying the issue to filling the official complaint form.
 
-The project focuses on **simplicity, accessibility, and speed**, aiming to remove barriers like complex forms, lack of awareness, and time-consuming processes.
+The system focuses on **simplicity, accessibility, and speed**, removing common barriers such as complex forms, lack of awareness about complaint platforms, and time-consuming reporting processes. By combining computer vision, large language models, and automation, the project demonstrates how AI can simplify civic participation.
 
 ---
-# https://complaingo-team3.streamlit.app/ [Try it Here]
-
-[Screencast from 07-18-2025 04:51:41 PM.webm](https://github.com/user-attachments/assets/3c8b0d52-ac32-47a8-a9d0-f743153c5e79)
 
 ## Why This Project?
 
 ### The Problem
 
-India witnesses over **2,300 deaths and 6,800 accidents yearly** due to potholes, waterlogging, poor street lighting, and other infrastructure issues.
-Yet, complaints often go unreported due to the following challenges:
+India records thousands of accidents every year due to infrastructure issues such as potholes, waterlogging, damaged roads, and poor street lighting. However, many of these issues remain unreported due to the following challenges:
 
-1. **Don’t Know Where to Complain**
-   Lack of awareness about official platforms like CPGRAMS or municipal apps.
+**Lack of Awareness**
+Many citizens do not know where to file complaints or which official platform should be used.
 
-2. **Too Time-Consuming**
-   Filling forms online takes **10–15 minutes**, discouraging people with limited time.
+**Time-Consuming Process**
+Online complaint systems often require filling multiple fields and selecting categories, which may take 10–15 minutes.
 
-3. **Too Many Categories**
-   Users often don’t know which category their issue fits into (e.g., is a water leak "sanitation" or "drainage"?).
+**Confusing Categories**
+Users often struggle to decide the correct category for their complaint.
 
-4. **Low Digital Literacy**
-   Many citizens, especially elderly or rural users, find online systems difficult to navigate.
+**Low Digital Literacy**
+For elderly or rural users, navigating government portals can be difficult and discouraging.
 
 ---
 
 ## Our Solution
 
-ComplainGo solves these pain points with an AI-powered assistant:
+ComplainGo simplifies the reporting process through an AI-powered assistant.
 
-- Users simply take or upload a photo of the issue with your phone.
+1. The user captures or uploads a photo of a road issue using their phone.
+2. A lightweight image classification model identifies the problem (for example: damaged road, pothole, waterlogging).
+3. An LLM automatically generates a structured and formal complaint text.
+4. The information is inserted into a complaint form using automation.
 
-- The system classifies the problem (e.g., "Damaged Road") using a custom Teachable Machine model.
-
-- A Gemini LLM generates a formal complaint text automatically.
-
-- The data is plugged into a replica of the official form via Selenium automation.
-
-- Lightweight and optimized — the entire pipeline runs smoothly on mobile phones, ensuring accessibility on-the-go.
-
-**The result: a complaint can be submitted in seconds — no confusion, no wasted time.**
-
-
+This reduces the reporting process from several minutes to **just a few seconds**, enabling citizens to report infrastructure issues quickly and easily.
 
 ---
+# https://complaingo-team3.streamlit.app/ [Try it Here]
 
+[Screencast from 07-18-2025 04:51:41 PM.webm](https://github.com/user-attachments/assets/3c8b0d52-ac32-47a8-a9d0-f743153c5e79)
 ## Technical Pipeline
 
-### 1. **Frontend Interface (Streamlit)**
+### 1. Frontend Interface
 
-* Mobile-first, responsive design.
-* Supports **image upload and webcam capture**.
-* User session management for smooth experience.
+The user interface is built with Streamlit and designed to be mobile friendly.
 
-### 2. **AI Inference Core (TFLite + Gemini)**
+Features include image upload, webcam capture, and session-based interactions for a smooth experience.
 
-* **Visual Classification:** TensorFlow Lite CNN classifies road issues in real time.
-* **Complaint Generation:** Google Gemini LLM generates formal complaint text using few-shot prompts.
+### 2. AI Inference Layer
 
-### 3. **Robotic Process Automation (Selenium)**
+The system combines computer vision and language models.
 
-* Automates filling out official complaint forms using headless Chromium.
+A TensorFlow Lite model classifies the road issue from the uploaded image.
+A Gemini LLM generates a formal complaint description based on the identified problem using prompt templates.
 
-### 4. **Deployment**
+### 3. Robotic Process Automation
 
-* Streamlit Cloud deployment with containerized dependencies (requirements.txt, packages.txt).
-* Secure API key management via Streamlit Secrets.
+A Selenium automation pipeline interacts with complaint portals and automatically fills the required form fields using the generated information.
 
----
+### 4. Deployment
 
-## Future Scope
-
-1. **Automatic Geolocation**
-   Use GPS metadata or browser geolocation to auto-fill precise complaint locations.
-
-2. **Firebase Issue Hub**
-   Store reports (images, categories, timestamps) in Firestore for heatmaps and analytics.
-
-3. **Repair Tracking**
-   Track complaint status (Reported → In Progress → Resolved) with notifications to users.
-
-4. **AI-Powered Route Planner**
-   Use **AI path planning** by combining road-quality scores and traffic data to suggest detours around damaged roads.
+The application is deployed using Streamlit Cloud with containerized dependencies and secure API key management.
 
 ---
 
-## Contributing
+## Team Contributions
 
-We welcome contributions from developers, designers, and AI enthusiasts.
+ComplainGo was developed as a **collaborative team project** by three contributors.
 
-* Improve the classification model.
-* Enhance UI/UX with better animations and themes.
-* Add integrations for more government platforms.
+**PQR – AI & Machine Learning Development**
+Designed and implemented the AI inference pipeline, including training and exporting the road issue classification model using TensorFlow Lite. Also integrated the Gemini LLM for automated complaint text generation and optimized model performance for lightweight execution.
 
-To contribute:
+**XYZ – Frontend & User Experience**
+Developed the Streamlit-based user interface, focusing on accessibility and mobile-first design. Implemented image upload, webcam capture, session flow, and UI styling to ensure a simple and intuitive user experience.
 
-1. Fork this repo.
-2. Create a feature branch.
-3. Submit a pull request with detailed notes.
+**DJFSK – Automation & System Integration**
+Built the Selenium-based robotic process automation pipeline to automatically populate complaint forms. Also handled integration between the frontend, AI models, and automation components to ensure smooth end-to-end functionality.
 
 ---
 
 ## Tech Stack
 
-* **Frontend:** Streamlit (with custom CSS)
-* **AI Models:** Teachable Machine (TFLite), Google Gemini LLM
-* **Automation:** Selenium with Chromium
-* **Backend:** Serverless architecture on Streamlit Cloud
-* **Other Tools:** Python, OpenAI/Hugging Face APIs, Firebase (future)
+Frontend
+Streamlit with custom CSS
 
+AI Models
+Teachable Machine exported to TensorFlow Lite
+Gemini Large Language Model
+
+Automation
+Selenium with Chromium
+
+Backend and Deployment
+Serverless architecture deployed on Streamlit Cloud
+
+Programming Language
+Python
+
+Planned Integrations
+Firebase, mapping APIs, and government complaint systems
+
+---
+
+## Future Scope
+
+**Automatic Geolocation**
+Use GPS metadata or browser geolocation to automatically fill the complaint location.
+
+**Central Issue Database**
+Store reports including images, timestamps, and categories for analytics and heatmap visualization.
+
+**Complaint Tracking**
+Allow users to track the status of submitted complaints with notifications.
+
+**Smart Route Planning**
+Use road-quality data combined with traffic information to recommend safer travel routes.
+
+---
+
+## Contributing
+
+Contributions from developers, designers, and AI enthusiasts are welcome.
+
+Possible areas of contribution include improving the classification model, enhancing UI/UX, and integrating additional government complaint portals.
+
+Steps to contribute:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Implement improvements or new features.
+4. Submit a pull request with clear documentation.
+
+---
+
+## Vision
+
+ComplainGo demonstrates how **AI, automation, and simple user interfaces** can make civic systems more accessible and efficient. The long-term goal is to create a scalable framework that encourages citizens to actively report infrastructure issues and helps authorities respond more quickly.
