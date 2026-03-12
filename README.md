@@ -81,6 +81,7 @@ Developed the road-issue image classification model using Teachable Machine and 
 
 ARNABI DUTTA – Frontend, Automation & Integration
 Built the Streamlit user interface, implemented Selenium-based form automation, and handled end-to-end system integration and deployment.
+
 ---
 
 ## Tech Stack
