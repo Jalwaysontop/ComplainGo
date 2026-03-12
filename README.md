@@ -76,11 +76,10 @@ The application is deployed using Streamlit Cloud with containerized dependencie
 
 ComplainGo was developed as a **collaborative team project** by three contributors.
 
-JUICY – Machine Learning & AI Development
-Developed the road-issue image classification model using Teachable Machine and integrated the Gemini LLM for automated complaint generation.
+JUICY –Developed the road-issue classification model using Teachable Machine and TensorFlow Lite, integrated the Gemini LLM for complaint generation, and implemented the Selenium-based automation logic for auto-filling complaint forms.
 
-ARNABI DUTTA – Frontend, Automation & Integration
-Built the Streamlit user interface, implemented Selenium-based form automation, and handled end-to-end system integration and deployment.
+ARNABI DUTTA – Application Development & Integration
+Managed the project repository, implemented the Streamlit application interface, organized the project structure, and integrated the different components for deployment.
 
 ---
 
